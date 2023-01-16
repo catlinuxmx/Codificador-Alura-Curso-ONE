@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+  <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Encriptador AlejandroSuarez</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style0.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+  <body>
+
+    <header>
+            <div class="caja1">
+                <h1><img src="images/logo.png"></h1>
+            </div>                  
+    </header>
+
+    <main>
+    
+      <textarea class="estilo1" id="myText1" placeholder="Ingrese el texto aqui"></textarea>
+    
+      <textarea class="estilo2" id="myText2"></textarea>
+
+      <div class="caja2" id="caja2">
+          <h1><img src="images/Muñeco.png"></h1>
+          <p id="leyenda1">Ningun mensaje fue encontrado</p>
+          <p id="leyenda2">Ingresa el texto que desees encriptar o desencriptar.</p>
+      </div>
+
+    </main>
+    
+    <section class="aviso">
+        <p>&#128712;Solo letras minusculas y sin acentos</p>
+    </section>
+
+    
+
+    <div class="botones">
+      <button class="button1" onclick="myFunction1()">Encriptar!</button>
+ 
+      <button class="button2" onclick="myFunction2()">Desencriptar!</button>
+
+      <button class="button3" id="button3" onclick="myFunction3()">Copiar</button>
+    </div>
+
+    
+
+    <script>
+      function myFunction1() {
+        var x = document.getElementById("myText1");
+        var defaultVal = x.defaultValue;
+        var currentVal = x.value;
+        var currentVal1 = x.value;
+        var resultVal1, resultVal2, resultaVal3, resultVal4, resultVal5;
+        var resultVal
+
+        const formato = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~áéíóú]/;
+        const formato1 = /[A-Z;0-9]/;
+
+        
+          
+        if (formato.test(currentVal) || formato1.test(currentVal)){
+          window.alert('Solo letras minusculas y sin acentos');
+          document.getElementById("myText1").value = ""
+        }
+        else{
+          document.getElementById("caja2").style.visibility = "hidden";
+          document.getElementById("button3").style.visibility = "visible";
+          resultVal1 = currentVal.replaceAll("e", "enter");
+          resultVal2 = resultVal1.replaceAll("i", "imes");
+          resultVal3 = resultVal2.replaceAll("a", "ai");
+          resultVal4 = resultVal3.replaceAll("o", "ober");
+          resultVal5 = resultVal4.replaceAll("u", "ufat");
+          resultVal = resultVal5;
+          
+          document.getElementById("myText2").innerHTML = resultVal;
+          document.getElementById("myText1").value = "";
+          
+
+
+        }
+
+        if (currentVal == ""){
+          document.getElementById("caja2").style.visibility = "visible";
+          document.getElementById("button3").style.visibility = "hidden";
+        }
+      }
+
+
+      function myFunction2() {
+        var x1 = document.getElementById("myText1");
+        var defaultVald = x1.defaultValue;
+        var currentVald = x1.value;
+        var currentVald1 = x1.value;
+        var resultVald1, resultVald2, resultaVald3, resultVald4, resultVald5;
+        var resultVald
+
+        const formato2 = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~áéíóú]/;
+        const formato3 = /[A-Z;0-9]/;
+
+        if (formato2.test(currentVald) || formato3.test(currentVald)){
+          window.alert('Solo letras minusculas y sin acentos');
+          document.getElementById("myText1").value = ""
+        }
+        else{
+          document.getElementById("caja2").style.visibility = "hidden";
+          document.getElementById("button3").style.visibility = "visible";
+          resultVald1 = currentVald.replaceAll("ufat", "u");
+          resultVald2 = resultVald1.replaceAll("ober", "o");
+          resultVald3 = resultVald2.replaceAll("ai", "a");
+          resultVald4 = resultVald3.replaceAll("imes", "i");
+          resultVald5 = resultVald4.replaceAll("enter", "e");
+          resultVald = resultVald5;
+    
+      
+          document.getElementById("myText2").innerHTML = resultVald;
+          document.getElementById("myText1").value = "";
+
+        }
+        if (currentVald == ""){
+          document.getElementById("caja2").style.visibility = "visible";
+          document.getElementById("button3").style.visibility = "hidden";
+        }
+      }
+
+      function myFunction3(){
+        var content = document.getElementById("myText2");
+        content.select();
+        document.execCommand('copy');
+
+      }
+
+      //*document.getElementById("button3").style.visibility = "hidden";*//
+
+    </script>
+
+
+
+  </body>
+
+</html>
